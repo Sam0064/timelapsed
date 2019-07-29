@@ -329,6 +329,7 @@ class DeleteCardSerializer(serializers.ModelSerializer):
     #Deletes any times associated with said card via cascade. 
 
     temp = get_object_or_404(Card, id = pk)
+    card_response_builder.delete(temp.id)    
     temp.delete()
 
     return card_response_builder.return_response()

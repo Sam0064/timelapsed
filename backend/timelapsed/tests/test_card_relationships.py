@@ -383,9 +383,12 @@ class TestCardRelationshipFunctionality(APITestCase):
 
     response = self.client.delete(f'/api/card/{self.parent_id}/')    
 
-    # print(decode_response(response))
+    delete_response = decode_response(response)['Delete']
 
     #Seems to be deleting, but response is incorrect right now. 
+
+    self.assertTrue(self.parent_id in delete_response)
+    self.assertTrue(self.first_child_id in delete_response)
 
 
     with self.assertRaises(ObjectDoesNotExist):
@@ -394,6 +397,9 @@ class TestCardRelationshipFunctionality(APITestCase):
       Card.objects.get(id = self.first_child_id)
   
   def test_if_can_mix_move_and_subclass(self):
+    
+
+
     pass
   
   def test_if_can_mix_move_and_delete(self):

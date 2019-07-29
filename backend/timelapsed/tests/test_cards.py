@@ -190,7 +190,7 @@ class TestCardResponses(APITestCase):
 
     response = self.client.delete(f'/api/card/{first_id}/')    
 
-    self.assertEqual(response.status_code, 204)    
+    self.assertEqual(response.status_code, 200)    
 
 
   def test_if_delete_rejects_invalid_id(self):

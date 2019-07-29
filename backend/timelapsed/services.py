@@ -59,7 +59,7 @@ def create_parent_relationship(data, user):
 
 
     res['id'] = Card_Relationship_Parent_Action.objects.create(Parent_ID = delete_card, Email = Users.objects.get(Email = user), Delete_ID = Card_Relationship_Delete_Action.objects.create(Email = Users.objects.get(Email = user), Card_ID = delete_card )).id
-    
+
     res['str'] = f'{delete_card.Name} is deleted'
 
     return res
