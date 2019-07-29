@@ -119,6 +119,8 @@ class CardView(viewsets.ModelViewSet):
     serializer = DeleteCardSerializer(data = {id:pk})
     if(serializer.is_valid()):
       destroy = serializer.destroy(pk)
+
+      #This has to return a 200 so that we can have a payload. 
       return Response(destroy, 200)
 
     print(serializer.errors)
